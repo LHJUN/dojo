@@ -17,9 +17,9 @@ public class CashTicketIssuerTest {
                 "-----------------------------------------------------\n" +
                 "Total without taxes                                 0\n" +
                 "Discout X%                                         -0\n" +
-                "Tax Y%                                             +0\n" +
+                "Tax Y%                                        +0.0685\n" +
                 "-----------------------------------------------------\n" +
-                "Total price                                         0";
+                "Total price                                    1.0685";
         Assert.assertEquals(expectedTicket, ticket);
     }
 }
