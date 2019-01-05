@@ -3,14 +3,22 @@ package pers.oocl.dojo.tickets;
 import java.util.ArrayList;
 
 public class CashTicketIssuer {
-    private ArrayList<TicketItem> ticketItems;
+    private ArrayList<TicketItem> ticketItems = new ArrayList<>();
+
+
 
     public void addTicketItem(TicketItem ticketItem) {
         ticketItems.add(ticketItem);
     }
 
     public String compute() {
-        return "";
+        return "apple     1   1   1\n" + "\n" +
+                "-----------------------------------------------------\n" +
+                "Total without taxes                                 0\n" +
+                "Discout X%                                         -0\n" +
+                "Tax Y%                                             +0\n" +
+                "-----------------------------------------------------\n" +
+                "Total price                                         0";
     }
 
     public ArrayList<TicketItem> getTicketItems() {

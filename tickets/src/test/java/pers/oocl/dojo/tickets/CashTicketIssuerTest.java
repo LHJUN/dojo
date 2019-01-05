@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class CashTicketIssuerTest {
-    
+
     @Test
     public void should_return_right_ticket_when_compute_given_label_is_apple_Quantity_is_1_Unitprice_is_1_statecode_is_UT(){
         TicketItem ticketItem = new TicketItem("apple", 1, 1, "UT");
