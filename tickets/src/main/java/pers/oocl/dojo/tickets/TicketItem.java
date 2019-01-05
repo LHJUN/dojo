@@ -5,13 +5,11 @@ public class TicketItem {
     private String lable;
     private int quantity;
     private double unitPrice;
-    private String stateCode;
 
-    public TicketItem(String label, int quantity, double unitPrice, String stateCode) {
+    public TicketItem(String label, int quantity, double unitPrice) {
         this.lable = label;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
-        this.stateCode = stateCode;
     }
 
     public String getLable() {
@@ -36,13 +34,5 @@ public class TicketItem {
 
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
-    }
-
-    public String getStateCode() {
-        return stateCode;
-    }
-
-    public void setStateCode(String stateCode) {
-        this.stateCode = stateCode;
     }
 }
