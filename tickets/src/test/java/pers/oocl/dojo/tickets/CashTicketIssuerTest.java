@@ -25,16 +25,6 @@ public class CashTicketIssuerTest {
         Assert.assertEquals(expectedTicket, result);
     }
 
-    /**
-     apple     1   2000   2000
-
-     -----------------------------------------------------
-     Total without taxes                              2000
-     Discout 3%                                        -60
-     Tax 6.85%                                        +137
-     -----------------------------------------------------
-     Total price                                      2077
-     */
     @Test
     public void should_return_right_ticket_string_when_compute_given_label_is_apple_Quantity_is_1_Unitprice_is_2000_statecode_is_UT() {
 
@@ -42,8 +32,6 @@ public class CashTicketIssuerTest {
         CashTicketIssuer cashTicketIssuer = new CashTicketIssuer();
         cashTicketIssuer.addTicketItem(ticketItem);
         cashTicketIssuer.setStateCode("UT");
-
-
 
         String result = cashTicketIssuer.generate();
         String expectedTicket = "apple     1   2000.00   2000.00\n" +
