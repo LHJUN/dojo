@@ -35,4 +35,8 @@ public class TicketItem {
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
+
+    public double getTotalPrice(){
+        return quantity*unitPrice;
+    }
 }

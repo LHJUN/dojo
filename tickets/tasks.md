@@ -1,10 +1,41 @@
-1. given label of item:"apple" Quantity:1 Unit price:1  state code:"UT"
-when compute
-then output
-"apple     1   1   1\n" + "\n" +
-"-----------------------------------------------------\n" +
-"Total without taxes 1\n" +
-"Discout 0%          0\n" +
-"Tax 6.85%     +0.0685\n" +
-"-----------------------------------------------------\n" +
-"Total price    1.0685"
+    1. 
+    given label of item:"apple" Quantity:1 Unit price:1  state code:"UT"
+    when CashTicketIssuer  generate ticket
+    then return ticket string
+    
+    apple     1   1.00   1.00
+    
+    -----------------------------------------------------
+    Total without taxes                              1.00
+    Discout 0.00%                                   -0.00
+    Tax 6.85%                                       +0.07
+    -----------------------------------------------------
+    Total price                                      1.07
+    
+    2
+    given label of item:"apple" Quantity:1 Unit price:2000  state code:"UT"
+    when CashTicketIssuer  generate ticket
+    then return ticket string 
+    
+    apple     1   2000.00   2000.00
+    
+    -----------------------------------------------------
+    Total without taxes                              2000.00
+    Discout 3.00%                                   -60.00
+    Tax 6.85%                                       +137.00
+    -----------------------------------------------------
+    Total price                                      2077.00
+    
+    3
+    given label of item:"apple" Quantity:1 Unit price:2000  state code:"UT"
+    when CashTicketIssuer  generate ticket
+    then return ticket string 
+    
+    apple     1   2000.00   2000.00
+    
+    -----------------------------------------------------
+    Total without taxes                              2000.00
+    Discout 3.00%                                   -60.00
+    Tax 6.85%                                       +137.00
+    -----------------------------------------------------
+    Total price                                      2077.00
