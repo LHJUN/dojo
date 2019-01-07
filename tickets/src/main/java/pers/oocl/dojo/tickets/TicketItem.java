@@ -2,22 +2,25 @@ package pers.oocl.dojo.tickets;
 
 public class TicketItem {
 
-    private String lable;
+    private String label;
     private int quantity;
     private double unitPrice;
 
+    public TicketItem() {
+    }
+
     public TicketItem(String label, int quantity, double unitPrice) {
-        this.lable = label;
+        this.label = label;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
     }
 
-    public String getLable() {
-        return lable;
+    public String getLabel() {
+        return label;
     }
 
-    public void setLable(String lable) {
-        this.lable = lable;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public int getQuantity() {

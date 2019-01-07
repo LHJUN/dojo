@@ -104,22 +104,9 @@ public class CashTicketIssuer {
 
     private void generateItemsInfo() {
         for(TicketItem item : ticketItems){
-            sb.append(String.format(itemFormat,item.getLable(),item.getQuantity(),item.getUnitPrice(),item.getTotalPrice()));
+            sb.append(String.format(itemFormat,item.getLabel(),item.getQuantity(),item.getUnitPrice(),item.getTotalPrice()));
         }
         sb.append("\n");
-    }
-
-
-    public ArrayList<TicketItem> getTicketItems() {
-        return ticketItems;
-    }
-
-    public void setTicketItems(ArrayList<TicketItem> ticketItems) {
-        this.ticketItems = ticketItems;
-    }
-
-    public String getStateCode() {
-        return stateCode;
     }
 
     public void setStateCode(String stateCode) {
