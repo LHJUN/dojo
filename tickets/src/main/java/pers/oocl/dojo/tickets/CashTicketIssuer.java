@@ -3,6 +3,7 @@ package pers.oocl.dojo.tickets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class CashTicketIssuer {
     private String stateCode;
@@ -15,7 +16,9 @@ public class CashTicketIssuer {
     private double taxMoney = 0;
     private double totalPrice = 0;
 
-    private static Map<String, Double> TAXREATEMAP = new HashMap<>();
+    private static Map<String, Double> TAX_RATE_MAP = new HashMap<>();
+
+    private static Map<Double,Double> DISCOUNT_RATE_MAP = new TreeMap<>();
 
     private String itemFormat = "%s     %d   %.2f   %.2f\n";
     private String lineWrap = "-----------------------------------------------------\n";
@@ -25,11 +28,18 @@ public class CashTicketIssuer {
     private String totalPriceFormat = "Total price                                      %.2f";
 
     static{
-        TAXREATEMAP.put("UT", 0.0685);
-        TAXREATEMAP.put("NV", 0.08);
-        TAXREATEMAP.put("TX", 0.0625);
-        TAXREATEMAP.put("AL", 0.04);
-        TAXREATEMAP.put("CA", 0.0825);
+        TAX_RATE_MAP.put("UT", 0.0685);
+        TAX_RATE_MAP.put("NV", 0.08);
+        TAX_RATE_MAP.put("TX", 0.0625);
+        TAX_RATE_MAP.put("AL", 0.04);
+        TAX_RATE_MAP.put("CA", 0.0825);
+
+        DISCOUNT_RATE_MAP.put(1000.0,0.03);
+        DISCOUNT_RATE_MAP.put(5000.0,0.05);
+        DISCOUNT_RATE_MAP.put(7000.0,0.07);
+        DISCOUNT_RATE_MAP.put(10000.0,0.1);
+        DISCOUNT_RATE_MAP.put(50000.0,0.15);
+
     }
 
     public void addTicketItem(TicketItem ticketItem) {
@@ -41,12 +51,21 @@ public class CashTicketIssuer {
         for(TicketItem item : ticketItems){
             totalWithoutTaxes+=item.getTotalPrice();
         }
-        if(totalWithoutTaxes > 1000){
-            discountRate=0.03;
-        }
+
+        getDiscountRate();
+
         discountMoney = totalWithoutTaxes * discountRate;
-        taxMoney = TAXREATEMAP.get(stateCode) * totalWithoutTaxes;
+        taxMoney = TAX_RATE_MAP.get(stateCode) * totalWithoutTaxes;
         totalPrice = totalWithoutTaxes - discountMoney + taxMoney;
+    }
+
+    private void getDiscountRate() {
+        for (Double key : DISCOUNT_RATE_MAP.keySet()) {
+            if(totalWithoutTaxes < key){
+                break;
+            }
+            discountRate = DISCOUNT_RATE_MAP.get(key);
+        }
     }
 
     public String generate() {
@@ -68,7 +87,7 @@ public class CashTicketIssuer {
     }
 
     private void generateTaxInfo() {
-        sb.append(String.format(taxRateFormat,TAXREATEMAP.get(stateCode)*100,taxMoney));
+        sb.append(String.format(taxRateFormat, TAX_RATE_MAP.get(stateCode)*100,taxMoney));
     }
 
     private void generateDiscountInfo() {

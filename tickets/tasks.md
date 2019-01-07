@@ -39,3 +39,17 @@
     Tax 8.00%                                       +160.00
     -----------------------------------------------------
     Total price                                      2100.00
+    
+    4
+    given label of item:"apple" Quantity:1 Unit price:6000  state code:"NV"
+    when CashTicketIssuer  generate ticket
+    then return ticket string 
+    
+    apple     1   6000.00   6000.00
+    
+    -----------------------------------------------------
+    Total without taxes                              6000.00
+    Discount 5.00%                                   -300.00
+    Tax 8.00%                                       +480.00
+    -----------------------------------------------------
+    Total price                                      6180.00

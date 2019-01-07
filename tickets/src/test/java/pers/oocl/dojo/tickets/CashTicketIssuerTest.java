@@ -64,4 +64,24 @@ public class CashTicketIssuerTest {
                 "Total price                                      2100.00";
         Assert.assertEquals(expectedTicket, result);
     }
+
+    @Test
+    public void should_return_right_ticket_string_when_compute_given_label_is_apple_Quantity_is_1_Unitprice_is_6000_statecode_is_NV() {
+
+        TicketItem ticketItem = new TicketItem("apple", 1, 6000);
+        CashTicketIssuer cashTicketIssuer = new CashTicketIssuer();
+        cashTicketIssuer.addTicketItem(ticketItem);
+        cashTicketIssuer.setStateCode("NV");
+
+        String result = cashTicketIssuer.generate();
+        String expectedTicket = "apple     1   6000.00   6000.00\n" +
+                "\n" +
+                "-----------------------------------------------------\n" +
+                "Total without taxes                              6000.00\n" +
+                "Discount 5.00%                                   -300.00\n" +
+                "Tax 8.00%                                       +480.00\n" +
+                "-----------------------------------------------------\n" +
+                "Total price                                      6180.00";
+        Assert.assertEquals(expectedTicket, result);
+    }
 }
