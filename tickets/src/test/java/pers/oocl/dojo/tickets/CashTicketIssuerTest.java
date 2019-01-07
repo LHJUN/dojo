@@ -33,6 +33,10 @@ public class CashTicketIssuerTest {
                 "Tax 6.85%                                       +0.07\n" +
                 "-----------------------------------------------------\n" +
                 "Total price                                      1.07";
+        Assert.assertEquals(1,cashTicketIssuer.getTotalWithoutTaxes(),0.0);
+        Assert.assertEquals(0,cashTicketIssuer.getDiscountMoney(),0.0);
+        Assert.assertEquals(0.07,cashTicketIssuer.getTaxMoney(),0.01);
+        Assert.assertEquals(1.07,cashTicketIssuer.getTotalPrice(),0.01);
         Assert.assertEquals(expectedTicket, result);
     }
 
@@ -53,6 +57,11 @@ public class CashTicketIssuerTest {
                 "Tax 6.85%                                       +137.00\n" +
                 "-----------------------------------------------------\n" +
                 "Total price                                      2077.00";
+
+        Assert.assertEquals(2000.00,cashTicketIssuer.getTotalWithoutTaxes(),0.0);
+        Assert.assertEquals(60,cashTicketIssuer.getDiscountMoney(),0.0);
+        Assert.assertEquals(137,cashTicketIssuer.getTaxMoney(),0.1);
+        Assert.assertEquals(2077,cashTicketIssuer.getTotalPrice(),0.1);
         Assert.assertEquals(expectedTicket, result);
     }
 
@@ -73,7 +82,13 @@ public class CashTicketIssuerTest {
                 "Tax 8.00%                                       +160.00\n" +
                 "-----------------------------------------------------\n" +
                 "Total price                                      2100.00";
+        Assert.assertEquals(2000.00,cashTicketIssuer.getTotalWithoutTaxes(),0.0);
+        Assert.assertEquals(60,cashTicketIssuer.getDiscountMoney(),0.0);
+        Assert.assertEquals(160,cashTicketIssuer.getTaxMoney(),0.1);
+        Assert.assertEquals(2100,cashTicketIssuer.getTotalPrice(),0.1);
         Assert.assertEquals(expectedTicket, result);
+
+
     }
 
     @Test
@@ -93,6 +108,10 @@ public class CashTicketIssuerTest {
                 "Tax 8.00%                                       +480.00\n" +
                 "-----------------------------------------------------\n" +
                 "Total price                                      6180.00";
+        Assert.assertEquals(6000,cashTicketIssuer.getTotalWithoutTaxes(),0.0);
+        Assert.assertEquals(300,cashTicketIssuer.getDiscountMoney(),0.0);
+        Assert.assertEquals(480,cashTicketIssuer.getTaxMoney(),0.1);
+        Assert.assertEquals(6180,cashTicketIssuer.getTotalPrice(),0.1);
         Assert.assertEquals(expectedTicket, result);
     }
 
@@ -116,6 +135,11 @@ public class CashTicketIssuerTest {
                 "Tax 8.00%                                       +1280.00\n" +
                 "-----------------------------------------------------\n" +
                 "Total price                                      15680.00";
+
+        Assert.assertEquals(16000,cashTicketIssuer.getTotalWithoutTaxes(),0.0);
+        Assert.assertEquals(1600,cashTicketIssuer.getDiscountMoney(),0.0);
+        Assert.assertEquals(1280,cashTicketIssuer.getTaxMoney(),0.1);
+        Assert.assertEquals(15680,cashTicketIssuer.getTotalPrice(),0.1);
         Assert.assertEquals(expectedTicket, result);
     }
 }

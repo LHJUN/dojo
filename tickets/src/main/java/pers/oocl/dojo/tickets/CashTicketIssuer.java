@@ -113,5 +113,19 @@ public class CashTicketIssuer {
         this.stateCode = stateCode;
     }
 
+    public double getTotalWithoutTaxes() {
+        return totalWithoutTaxes;
+    }
 
+    public double getDiscountMoney() {
+        return discountMoney;
+    }
+
+    public double getTaxMoney() {
+        return taxMoney;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
 }
