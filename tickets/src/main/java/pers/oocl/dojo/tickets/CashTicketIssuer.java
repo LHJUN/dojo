@@ -20,13 +20,6 @@ public class CashTicketIssuer {
 
     private static Map<Double,Double> DISCOUNT_RATE_MAP = new TreeMap<>();
 
-    private String itemFormat = "%s     %d   %.2f   %.2f\n";
-    private String lineWrap = "-----------------------------------------------------\n";
-    private String totalWithoutTaxFormat = "Total without taxes                              %.2f\n";
-    private String discountFormat = "Discount %.2f%%                                   -%.2f\n";
-    private String taxRateFormat = "Tax %.2f%%                                       +%.2f\n";
-    private String totalPriceFormat = "Total price                                      %.2f";
-
     static{
         TAX_RATE_MAP.put("UT", 0.0685);
         TAX_RATE_MAP.put("NV", 0.08);
@@ -67,7 +60,7 @@ public class CashTicketIssuer {
             }
             t_discountRate = DISCOUNT_RATE_MAP.get(key);
         }
-        return t_discountRate;
+        return discountRate;
     }
 
     public String generate() {
@@ -85,27 +78,33 @@ public class CashTicketIssuer {
     }
 
     private void generateTotalPrice() {
+        String totalPriceFormat = "Total price                                      %.2f";
         sb.append(String.format(totalPriceFormat,totalPrice));
     }
 
     private void generateTaxInfo() {
+        String taxRateFormat = "Tax %.2f%%                                       +%.2f\n";
         sb.append(String.format(taxRateFormat, TAX_RATE_MAP.get(stateCode)*100,taxMoney));
     }
 
     private void generateDiscountInfo() {
+        String discountFormat = "Discount %.2f%%                                   -%.2f\n";
         sb.append(String.format(discountFormat,discountRate*100,discountMoney));
     }
 
     private void generateTotalWithoutTax() {
+        String totalWithoutTaxFormat = "Total without taxes                              %.2f\n";
         sb.append(String.format(totalWithoutTaxFormat, totalWithoutTaxes));
     }
 
     private void generateLineWrap() {
+        String lineWrap = "-----------------------------------------------------\n";
         sb.append(lineWrap);
     }
 
     private void generateItemsInfo() {
         for(TicketItem item : ticketItems){
+            String itemFormat = "%s     %d   %.2f   %.2f\n";
             sb.append(String.format(itemFormat,item.getLabel(),item.getQuantity(),item.getUnitPrice(),item.getTotalPrice()));
         }
         sb.append("\n");
