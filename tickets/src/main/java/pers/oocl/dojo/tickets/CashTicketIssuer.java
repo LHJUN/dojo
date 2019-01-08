@@ -52,20 +52,22 @@ public class CashTicketIssuer {
             totalWithoutTaxes+=item.getTotalPrice();
         }
 
-        getDiscountRate();
+        discountRate = getDiscountRate();
 
         discountMoney = totalWithoutTaxes * discountRate;
         taxMoney = TAX_RATE_MAP.get(stateCode) * totalWithoutTaxes;
         totalPrice = totalWithoutTaxes - discountMoney + taxMoney;
     }
 
-    private void getDiscountRate() {
+    private double getDiscountRate() {
+        double t_discountRate = 0.0;
         for (Double key : DISCOUNT_RATE_MAP.keySet()) {
             if(totalWithoutTaxes < key){
-                break;
+                return t_discountRate;
             }
-            discountRate = DISCOUNT_RATE_MAP.get(key);
+            t_discountRate = DISCOUNT_RATE_MAP.get(key);
         }
+        return t_discountRate;
     }
 
     public String generate() {
