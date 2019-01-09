@@ -6,9 +6,6 @@ public class TicketItem {
     private int quantity;
     private double unitPrice;
 
-    public TicketItem() {
-    }
-
     public TicketItem(String label, int quantity, double unitPrice) {
         this.label = label;
         this.quantity = quantity;

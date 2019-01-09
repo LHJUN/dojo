@@ -5,17 +5,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CashTicketIssuerTest {
-
-
     private CashTicketIssuer cashTicketIssuer;
-
 
     @Before
     public void setUp(){
         cashTicketIssuer = new CashTicketIssuer();
     }
-
-
 
     @Test
     public void should_return_right_ticket_when_compute_given_label_is_apple_Quantity_is_1_Unitprice_is_1_statecode_is_UT(){
