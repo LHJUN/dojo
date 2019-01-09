@@ -32,7 +32,6 @@ public class CashTicketIssuer {
         DISCOUNT_RATE_MAP.put(7000.0,0.07);
         DISCOUNT_RATE_MAP.put(10000.0,0.1);
         DISCOUNT_RATE_MAP.put(50000.0,0.15);
-
     }
 
     public void addTicketItem(TicketItem ticketItem) {
@@ -103,8 +102,8 @@ public class CashTicketIssuer {
     }
 
     private void generateItemsInfo() {
+        String itemFormat = "%s     %d   %.2f   %.2f\n";
         for(TicketItem item : ticketItems){
-            String itemFormat = "%s     %d   %.2f   %.2f\n";
             sb.append(String.format(itemFormat,item.getLabel(),item.getQuantity(),item.getUnitPrice(),item.getTotalPrice()));
         }
         sb.append("\n");
