@@ -1,7 +1,7 @@
-    1
-    given label of item:"apple" Quantity:1 Unit price:1  state code:"UT"
-    when CashTicketIssuer  generate ticket
-    then return ticket string
+   **1**
+   - given label of item:"apple" Quantity:1 Unit price:1  state code:"UT"
+   - when CashTicketIssuer  generate ticket
+   - then return ticket string
     
     apple     1   1.00   1.00
     
@@ -13,10 +13,10 @@
     Total price                                      1.07
 
     
-    2
-    given label of item:"apple" Quantity:1 Unit price:2000  state code:"UT"
-    when CashTicketIssuer  generate ticket
-    then return ticket string 
+   **2**
+   - given label of item:"apple" Quantity:1 Unit price:2000  state code:"UT"
+   - when CashTicketIssuer  generate ticket
+   - then return ticket string 
     
     apple     1   2000.00   2000.00
     
@@ -27,10 +27,10 @@
     -----------------------------------------------------
     Total price                                      2077.00
     
-    3
-    given label of item:"apple" Quantity:1 Unit price:2000  state code:"NV"
-    when CashTicketIssuer  generate ticket
-    then return ticket string 
+   **3**
+   - given label of item:"apple" Quantity:1 Unit price:2000  state code:"NV"
+   - when CashTicketIssuer  generate ticket
+   - then return ticket string 
     
     apple     1   2000.00   2000.00
     
@@ -41,10 +41,10 @@
     -----------------------------------------------------
     Total price                                      2100.00
     
-    4
-    given label of item:"apple" Quantity:1 Unit price:6000  state code:"NV"
-    when CashTicketIssuer  generate ticket
-    then return ticket string 
+   **4**
+   - given label of item:"apple" Quantity:1 Unit price:6000  state code:"NV"
+   - when CashTicketIssuer  generate ticket
+   - then return ticket string 
     
     apple     1   6000.00   6000.00
     
@@ -55,12 +55,12 @@
     -----------------------------------------------------
     Total price                                      6180.00
     
-    5
-    given label of item:"apple" Quantity:1 Unit price:6000  
+   **5**
+   - given label of item:"apple" Quantity:1 Unit price:6000  
                         "banana" Quantity:2 Unit price:5000  
                         and state code:"NV"
-    when CashTicketIssuer  generate ticket
-    then return ticket string 
+   - when CashTicketIssuer  generate ticket
+   - then return ticket string 
     
     banana     2   5000.00   10000.00
     apple     1   6000.00   6000.00
