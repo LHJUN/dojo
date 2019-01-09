@@ -13,7 +13,7 @@ public class CashTicketIssuerTest {
     }
 
     @Test
-    public void should_return_right_ticket_when_compute_given_label_is_apple_Quantity_is_1_Unitprice_is_1_statecode_is_UT(){
+    public void should_return_right_ticket_when_generate_ticket_given_label_is_apple_Quantity_is_1_Unitprice_is_1_statecode_is_UT(){
         TicketItem ticketItem = new TicketItem("apple", 1, 1);
         cashTicketIssuer.addTicketItem(ticketItem);
         cashTicketIssuer.setStateCode("UT");
@@ -36,7 +36,7 @@ public class CashTicketIssuerTest {
     }
 
     @Test
-    public void should_return_right_ticket_string_when_compute_given_label_is_apple_Quantity_is_1_Unitprice_is_2000_statecode_is_UT() {
+    public void should_return_right_ticket_string_when_generate_ticket_given_label_is_apple_Quantity_is_1_Unitprice_is_2000_statecode_is_UT() {
 
         TicketItem ticketItem = new TicketItem("apple", 1, 2000);
 
@@ -61,7 +61,7 @@ public class CashTicketIssuerTest {
     }
 
     @Test
-    public void should_return_right_ticket_string_when_compute_given_label_is_apple_Quantity_is_1_Unitprice_is_2000_statecode_is_NV() {
+    public void should_return_right_ticket_string_when_generate_ticket_given_label_is_apple_Quantity_is_1_Unitprice_is_2000_statecode_is_NV() {
 
         TicketItem ticketItem = new TicketItem("apple", 1, 2000);
 
@@ -87,7 +87,7 @@ public class CashTicketIssuerTest {
     }
 
     @Test
-    public void should_return_right_ticket_string_when_compute_given_label_is_apple_Quantity_is_1_Unitprice_is_6000_statecode_is_NV() {
+    public void should_return_right_ticket_string_when_generate_ticket_given_label_is_apple_Quantity_is_1_Unitprice_is_6000_statecode_is_NV() {
 
         TicketItem ticketItem = new TicketItem("apple", 1, 6000);
 
@@ -111,7 +111,7 @@ public class CashTicketIssuerTest {
     }
 
     @Test
-    public void should_return_right_ticket_string_when_compute_given_more_items_and_statecode_is_NV() {
+    public void should_return_right_ticket_string_when_generate_ticket_given_more_items_and_statecode_is_NV() {
 
         TicketItem apple = new TicketItem("apple", 1, 6000);
         TicketItem banana = new TicketItem("banana", 2, 5000);
