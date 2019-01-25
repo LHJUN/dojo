@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="BowlingScore" />
         <module name="tickets" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="tdd" target="1.8" />
-      <module name="tickets" target="1.8" />
+      <module name="BowlingScore" target="1.5" />
+      <module name="tdd" target="1.5" />
+      <module name="tickets" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>
